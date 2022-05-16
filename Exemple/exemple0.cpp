@@ -5,17 +5,11 @@
 Serial pc(USBTX, USBRX, 115200);
 Motor motor(D10, D9, D6, D5, D4);       //pwm, fwd, rev, EncA, EncB
 
-int _count;                             //declaration du compteur pour l'encodeur
-int rev = 12;                           // nombre de tick sur l'encodeur
-int dir = -1;                           //sens de direction du moteur par rapport a l'encodeur
-float ratio = 34.014;                   //rapport de réduction
-int freq_echnatillonnage = 50;          //frequence d'execution de l'asservissement
 float vReelMotor ;                      //vitesse de ma roue
-
 
 int main() {
     motor.speed(0); 
-    float cmd = 0;                    //commande du moteur
+    float cmd = 0;                      //commande du moteur
    
     for (int i = 0; i <= 1; i++){
         motor.speed(i);
