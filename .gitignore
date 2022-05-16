@@ -1,0 +1,8 @@
+*.git
+
+BUILD
+.build
+.mbed
+main*
+mbed-os
+mbed*
