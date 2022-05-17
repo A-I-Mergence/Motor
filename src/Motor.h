@@ -43,17 +43,20 @@ public:
     /** Set the speed of the motor
      * @param speed The speed of the motor as a normalised value between -1.0 and 1.0
      */
-    void speed(float speed);
 
-    void risingA();
-    void fallingA();
-    void risingB();
-    void fallingB();
+    void MotorSetup(double, double, double);
+    void speed(float speed);
 
     void UpdateSpeed();
     double getSpeed(){ return vitesse; };
 
 protected:
+    
+    void risingA();
+    void fallingA();
+    void risingB();
+    void fallingB();
+
     double _Tq;
     Ticker * _t;
 
@@ -65,8 +68,8 @@ protected:
 
     double _count;
     double vitesse;
-    int rev;
-    int dir;
-    float ratio;
+    int _enco;
+    int _dir;
+    float _ratio;
 };
 #endif

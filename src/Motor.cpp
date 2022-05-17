@@ -36,18 +36,20 @@ Motor::Motor(PinName pwm, PinName fwd, PinName rev, PinName EncA, PinName EncB):
     // Initial condition of output enables
     _fwd = 0;
     _rev = 0;
-
     _count = 0;
 
     _EncA.rise(callback(this, &Motor::risingA));
     _EncA.fall(callback(this, &Motor::fallingA));
     _EncB.rise(callback(this, &Motor::risingB));
     _EncB.fall(callback(this, &Motor::fallingB));
-    
-    dir = -1;
-    ratio = 34.014;
 
     _t->attach(callback(this, &Motor::UpdateSpeed), _Tq);
+}
+
+void Motor::MotorSetup(double enco, double dir, double ratio){
+    enco = _enco;
+    dir = _dir;
+    ratio = _ratio;
 }
 
 void Motor::speed(float speed) {
@@ -76,6 +78,6 @@ void Motor::fallingB(){
 void Motor::UpdateSpeed(){
     // vitesse des roues=direction*nombre de tick de l'encodeur * 60 secondes / 
     // (nb tick encodeur*4 car 2 encodeur en change*fréquence echantillonnage)/rapport de réduction
-    vitesse = dir * _count *  60.0f/(12*4*_Tq)/ratio;
+    vitesse = _dir * _count *  60.0f/(_enco*4*_Tq)/_ratio;
     _count = 0;
 }
