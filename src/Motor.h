@@ -43,15 +43,19 @@ public:
     /** Set the speed of the motor
      * @param speed The speed of the motor as a normalised value between -1.0 and 1.0
      */
-
-    void MotorSetup(double, double, double);
     void speed(float speed);
 
-    void UpdateSpeed();
+    /** Set the parameters of the motor
+     * @param dirrection direction of rotation of the encoder relative to the direction of rotation of the motor shaft
+     * @param ration gear ration
+     * @param cpr counts per revolution (using just a single edge of one channel)
+     */
+    void MotorSetup(double, double, double);
+
     double getSpeed(){ return vitesse; };
 
 protected:
-    
+    void UpdateSpeed();
     void risingA();
     void fallingA();
     void risingB();

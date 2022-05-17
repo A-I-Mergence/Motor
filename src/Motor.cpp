@@ -46,7 +46,7 @@ Motor::Motor(PinName pwm, PinName fwd, PinName rev, PinName EncA, PinName EncB):
     _t->attach(callback(this, &Motor::UpdateSpeed), _Tq);
 }
 
-void Motor::MotorSetup(double enco, double dir, double ratio){
+void Motor::MotorSetup(double dir, double ratio, double enco){
     enco = _enco;
     dir = _dir;
     ratio = _ratio;
