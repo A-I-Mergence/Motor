@@ -50,7 +50,7 @@ public:
      * @param ration gear ration
      * @param cpr counts per revolution (using just a single edge of one channel)
      */
-    void MotorSetup(double, double, double);
+    void MotorSetup(double direction, double ratio, double cpr);
 
     double getSpeed(){ return vitesse; };
 
