@@ -4,5 +4,5 @@ BUILD
 .build
 .mbed
 main*
-mbed-os
+mbed-os*
 mbed*
