@@ -11,9 +11,9 @@ double enco = 12;
 float vReelMotor ;                      //vitesse de ma roue
 
 int main() {
+    motor.MotorSetup(dir, ratio, enco);
+    
     while (true){
-        motor.MotorSetup(dir, ratio, enco);
-
         for (float i = 0; i <= 1; i+=0.01){
             motor.speed(i);
             wait_ms(200);

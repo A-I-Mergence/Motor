@@ -52,7 +52,7 @@ public:
      */
     void MotorSetup(double direction, float ratio, double cpr);
 
-    double getSpeed(){ return vitesse; };
+    float getSpeed(){ return _vitesse; };
 
 protected:
     void UpdateSpeed();
@@ -71,7 +71,7 @@ protected:
     InterruptIn _EncB;
 
     double _count;
-    double vitesse;
+    float _vitesse;
     double _enco;
     double _dir;
     float _ratio;

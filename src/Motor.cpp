@@ -47,9 +47,9 @@ Motor::Motor(PinName pwm, PinName fwd, PinName rev, PinName EncA, PinName EncB):
 }
 
 void Motor::MotorSetup(double dir, float ratio, double enco){
-    enco = _enco;
-    dir = _dir;
-    ratio = _ratio;
+    _enco = enco;
+    _dir = dir;
+    _ratio = ratio;
 }
 
 void Motor::speed(float speed) {
@@ -78,6 +78,6 @@ void Motor::fallingB(){
 void Motor::UpdateSpeed(){
     // vitesse des roues=direction*nombre de tick de l'encodeur * 60 secondes / 
     // (nb tick encodeur*4 car 2 encodeur en change*fréquence echantillonnage)/rapport de réduction
-    vitesse = _dir * _count *  60.0f/(_enco*4*_Tq)/_ratio;
+    _vitesse = _dir * _count *  60.0f/(_enco*4*_Tq)/_ratio;
     _count = 0;
 }
