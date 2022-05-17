@@ -5,9 +5,9 @@
 Serial pc(USBTX, USBRX, 115200);
 Motor motor(D10, D9, D6, D5, D4);       //pwm, fwd, rev, EncA, EncB
 
-int dir = -1;
+double dir = -1;
 float ratio = 34.014;
-int enco = 12;
+double enco = 12;
 float vReelMotor ;                      //vitesse de ma roue
 
 int main() {
