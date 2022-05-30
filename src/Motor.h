@@ -43,7 +43,7 @@ public:
     /** Set the speed of the motor
      * @param speed The speed of the motor as a normalised value between -1.0 and 1.0
      */
-    void speed(float speed);
+    void SetSpeedPWM(float speed);
 
     /** Set the parameters of the motor
      * @param dirrection direction of rotation of the encoder relative to the direction of rotation of the motor shaft
@@ -52,7 +52,10 @@ public:
      */
     void MotorSetup(double direction, float ratio, double cpr);
 
-    float getSpeed(){ return _vitesse; };
+    float GetSpeed(){ return _vitesse; };
+    
+    void Stop();
+
 
 protected:
     void UpdateSpeed();
