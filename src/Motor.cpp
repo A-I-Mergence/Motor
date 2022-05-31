@@ -52,8 +52,7 @@ void Motor::MotorSetup(double dir, float ratio, double enco){
     _ratio = ratio;
 }
 
-void Motor::SetSpeedPWM(float speed) {
-    speed = speed > 1 ? 1 : (speed < -1 ? -1 : speed);
+void Motor::speed(float speed) {
     _fwd = (speed > 0.0);
     _rev = (speed < 0.0);
     _pwm = abs(speed);
@@ -81,8 +80,4 @@ void Motor::UpdateSpeed(){
     // (nb tick encodeur*4 car 2 encodeur en change*fréquence echantillonnage)/rapport de réduction
     _vitesse = _dir * _count *  60.0f/(_enco*4*_Tq)/_ratio;
     _count = 0;
-}
-
-void Motor::Stop(){
-    SetSpeedPWM(0);
 }
